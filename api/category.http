@@ -1,0 +1,12 @@
+@baseUrl =  http://localhost:3000/api/categories
+
+# Category API
+
+# @name Getall
+GET {{baseUrl}} 
+
+###
+
+# @name GetbyId
+GET {{baseUrl}}/6455ceffc8d917d3615a4977
+

@@ -1,0 +1,36 @@
+@baseUrl =  http://localhost:3000/api/products
+
+# Products API
+
+# @name Getall
+GET {{baseUrl}} 
+
+###
+
+# @name GetbyId
+GET {{baseUrl}}/6455d0c5c8d917d3615a4995
+
+###
+
+# @name GetbyCategory
+GET {{baseUrl}}/category/6455ceffc8d917d3615a4978
+
+###
+
+# @name GetHotProducts
+GET {{baseUrl}}/hot
+
+###
+
+# @name GetNewProducts
+GET {{baseUrl}}/new
+
+###
+
+# @name GetViewProducts
+GET {{baseUrl}}/view
+
+###
+
+# @name GetSearchProducts
+GET {{baseUrl}}/search/Ghế da Eclectic
