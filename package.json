@@ -15,6 +15,8 @@
     "express": "~4.16.1",
     "mongoose": "^7.1.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "express-validator": "^7.0.1",
+    "unidecode": "^0.1.8"
   }
 }

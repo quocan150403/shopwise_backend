@@ -6,23 +6,23 @@ class UserController {
   async getAll(req, res, next) {
     try {
       const data = await UserModel.find();
-      res.json(data);
+      res.status(200).json(data);
     } catch (error) {
-      console.log(error);
+      res.status(500).json(error);
     }
   }
 
   // [GET] users/:id
   async getOne(req, res, next) {
-    const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ error: 'Invalid product ID' });
-    }
     try {
+      const { id } = req.params;
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Invalid product ID' });
+      }
       const data = await UserModel.findById(id);
-      res.json(data);
+      res.status(200).json(data);
     } catch (error) {
-      console.log(error);
+      res.status(500).json(error);
     }
   }
 }

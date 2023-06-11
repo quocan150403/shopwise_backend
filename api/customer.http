@@ -1,0 +1,44 @@
+@baseUrl =  http://localhost:3000/api/customers
+
+# User API
+
+# @name Getall
+GET {{baseUrl}} 
+
+###
+
+# @name GetbyId
+GET {{baseUrl}}/6455ceffc8d917d3615a497b
+
+###
+
+# @name Create
+POST {{baseUrl}}/store
+Content-Type: application/json
+
+{
+    "fullName":"Võ Quốc An",
+    "phone":"0123456789",
+    "address":"HCM",
+    "email":"quocan99@gmail.com"
+}
+
+###
+
+# @name Update
+PUT {{baseUrl}}/update/648567ae63cc33b32a1d792f
+Content-Type: application/json
+
+{
+   "fullName":"Võ Quốc An 1",
+    "phone":"03495345",
+    "address":"shdjas",
+    "email":"quoca"
+}
+
+###
+
+# @name Delete
+DELETE {{baseUrl}}/delete/648567ae63cc33b32a1d792f
+
+###

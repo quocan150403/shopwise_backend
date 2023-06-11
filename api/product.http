@@ -1,9 +1,13 @@
 @baseUrl =  http://localhost:3000/api/products
 
-# Products API
+# Product API
 
 # @name Getall
 GET {{baseUrl}} 
+
+###
+# @name Rename
+GET {{baseUrl}}/rename
 
 ###
 
@@ -12,25 +16,59 @@ GET {{baseUrl}}/6455d0c5c8d917d3615a4995
 
 ###
 
+# @name GetNew
+GET {{baseUrl}}/new
+
+###
+
+# @name GetHot
+GET {{baseUrl}}/hot
+
+###
+
+# @name GetView
+GET {{baseUrl}}/view
+
+###
+
+# @name GetSearch
+GET {{baseUrl}}/search/demo
+
+###
 # @name GetbyCategory
 GET {{baseUrl}}/category/6455ceffc8d917d3615a4978
 
 ###
 
-# @name GetHotProducts
-GET {{baseUrl}}/hot
+# @name Create
+POST {{baseUrl}}/store
+Content-Type: application/json
+
+{
+    "name":"Sản phẩm demo",
+    "urlImg":"123",
+    "price":1234,
+    "stock":45,
+    "categoryId":"6455ceffc8d917d3615a4978"
+}
 
 ###
 
-# @name GetNewProducts
-GET {{baseUrl}}/new
+# @name Update
+PUT {{baseUrl}}/update/648560739aa9a19b833601d8
+Content-Type: application/json
+
+{
+    "name":"Sản phẩm demo 1",
+    "urlImg":"123",
+    "price":1234,
+    "stock":45,
+    "categoryId":"6455ceffc8d917d3615a4978"
+}
 
 ###
 
-# @name GetViewProducts
-GET {{baseUrl}}/view
+# @name Delete
+DELETE {{baseUrl}}/delete/648560739aa9a19b833601d8
 
 ###
-
-# @name GetSearchProducts
-GET {{baseUrl}}/search/Ghế da Eclectic

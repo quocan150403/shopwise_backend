@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
-const category = require('../controllers/Category');
+const CategoryController = require('../controllers/Category');
 
 // [GET] categories/
-router.get('/', category.getAll);
-router.get('/:id', category.getCategoryById);
+router.get('/', CategoryController.getAll);
+router.get('/:id', CategoryController.getOne);
+router.post('/store', CategoryController.create);
+router.put('/update/:id', CategoryController.update);
+router.delete('/delete/:id', CategoryController.delete);
 
 module.exports = router;

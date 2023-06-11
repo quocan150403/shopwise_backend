@@ -1,4 +1,4 @@
-@baseUrl =  http://localhost:3000/api/categories
+@baseUrl =  http://localhost:3000/api/bills
 
 # User API
 
@@ -17,8 +17,12 @@ POST {{baseUrl}}/store
 Content-Type: application/json
 
 {
-    "name": "Ghế bành",
-    "urlImg":"http://localhost:3000/images/categories/armchair.png"
+"paymentMethod":"Demo",
+"shippingMethod":"Dmeo",
+"shippingFee":1234,
+"total":234,
+"customerId":,
+"userId":,
 }
 
 ###

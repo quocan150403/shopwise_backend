@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const Bill = new mongoose.Schema({
-  payment: { type: String, required: true },
-  shipping: { type: String, required: true },
-  shoppingFee: { type: Number, required: true },
+  paymentMethod: { type: String, required: true },
+  shippingMethod: { type: String, required: true },
+  shippingFee: { type: Number, required: true },
   total: { type: Number, required: true },
   status: { type: String, default: 'pending' },
   visible: { type: Boolean, default: true },
@@ -13,4 +13,4 @@ const Bill = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Bill', User);
+module.exports = mongoose.model('Bill', Bill);

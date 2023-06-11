@@ -5,6 +5,7 @@ const Customer = new mongoose.Schema({
   phone: { type: String, required: true },
   address: { type: String, required: true },
   email: { type: String, required: true },
+  visible: { type: Boolean, default: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

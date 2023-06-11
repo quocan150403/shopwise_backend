@@ -15,13 +15,13 @@ connect();
 // CORS
 app.use(cors());
 
-// init routes
-routes(app);
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// init routes
+routes(app);
 
 module.exports = app;
