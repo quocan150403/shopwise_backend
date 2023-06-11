@@ -14,11 +14,11 @@ class CategoryController {
 
   // [GET] categories/:id
   async getCategoryById(req, res, next) {
-    const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ error: 'Invalid product ID' });
-    }
     try {
+      const { id } = req.params;
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Invalid product ID' });
+      }
       const data = await Category.findById(id);
       res.json(data);
     } catch (error) {

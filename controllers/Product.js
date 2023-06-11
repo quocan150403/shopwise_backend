@@ -4,7 +4,6 @@ const Product = require('../models/product');
 class ProductController {
   // [GET] products/
   async getAll(req, res, next) {
-    console.log('get all products');
     try {
       const data = await Product.find();
       res.json(data);
@@ -30,7 +29,7 @@ class ProductController {
   // [GET] products/new
   async getNewProduct(req, res, next) {
     try {
-      const data = await Product.find().sort({ createdAt: -1 }).limit(10);
+      const data = await Product.find().sort({ createdAt: -1 }).limit(8);
       res.json(data);
     } catch (error) {
       console.log(error);
@@ -40,7 +39,7 @@ class ProductController {
   // [GET] products/hot
   async getHotProduct(req, res, next) {
     try {
-      const data = await Product.find().sort({ sold: -1 }).limit(10);
+      const data = await Product.find().sort({ sold: -1 }).limit(8);
       res.json(data);
     } catch (error) {
       console.log(error);
@@ -50,7 +49,7 @@ class ProductController {
   // [GET] products/view
   async getViewProduct(req, res, next) {
     try {
-      const data = await Product.find().sort({ view: -1 }).limit(10);
+      const data = await Product.find().sort({ view: -1 }).limit(8);
       res.json(data);
     } catch (error) {
       console.log(error);
