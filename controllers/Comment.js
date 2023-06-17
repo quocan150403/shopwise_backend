@@ -1,41 +1,35 @@
 const mongoose = require('mongoose');
-const unidecode = require('unidecode');
-const CategoryModel = require('../models/category');
+const CommentModel = require('../models/comment');
 
-class CategoryController {
-  // [GET] api/categories
+class CommentController {
+  // [GET] api/comments
   async getAll(req, res, next) {
     try {
-      const data = await CategoryModel.find();
+      const data = await CommentModel.find();
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [GET] api/categories/:id
+  // [GET] api/comments/:id
   async getOne(req, res, next) {
     try {
       const { id } = req.params;
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ error: 'Invalid product ID' });
       }
-      const data = await CategoryModel.findById(req.params.id);
+      const data = await CommentModel.findById(req.params.id);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [POST] api/categories/store
+  // [POST] api/comments/store
   async create(req, res, next) {
     try {
-      req.body.slug = unidecode(req.body.name)
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/-+/g, '-');
-      const data = new CategoryModel(req.body);
+      const data = new CommentModel(req.body);
       const savedCategory = await data.save();
       res.status(200).json(savedCategory);
     } catch (error) {
@@ -43,25 +37,20 @@ class CategoryController {
     }
   }
 
-  // [PUT] api/categories/update/:id
+  // [PUT] api/comments/update/:id
   async update(req, res, next) {
     try {
-      req.body.slug = unidecode(req.body.name)
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/-+/g, '-');
-      const data = await CategoryModel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+      const data = await CommentModel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [DELETE] api/categories/delete/:id
+  // [DELETE] api/comments/delete/:id
   async delete(req, res, next) {
     try {
-      await CategoryModel.findByIdAndDelete(req.params.id);
+      await CommentModel.findByIdAndDelete(req.params.id);
       res.status(200).json('Xóa thành công');
     } catch (error) {
       res.status(500).json(error);
@@ -69,4 +58,4 @@ class CategoryController {
   }
 }
 
-module.exports = new CategoryController();
+module.exports = new CommentController();

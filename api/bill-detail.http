@@ -1,4 +1,4 @@
-@baseUrl =  http://localhost:3000/api/bills
+@baseUrl =  http://localhost:3000/api/bill-details
 
 # User API
 
@@ -17,12 +17,13 @@ POST {{baseUrl}}/store
 Content-Type: application/json
 
 {
-   "paymentMethod":"Demo",
-   "shippingMethod":"Dmeo",
-   "shippingFee":1234,
-   "total":234,
-   "customerId":"648567df63cc33b32a1d7933",
-   "userId":"648567df63cc33b32a1d7933"
+   "name":"demo 1",
+   "urlImg": "demo 1",
+   "price": 1234,
+   "quantity": 1234,
+   "total": 1234,
+   "billId": "6485d9ee64438f7d6f4ee144",
+   "productId": "6455d0c5c8d917d3615a4995"
 }
 
 ###

@@ -1,33 +1,33 @@
 const mongoose = require('mongoose');
 const unidecode = require('unidecode');
-const CategoryModel = require('../models/category');
+const BillDetailModel = require('../models/bill-detail');
 
-class CategoryController {
-  // [GET] api/categories
+class BillDetailController {
+  // [GET] api/bill-details
   async getAll(req, res, next) {
     try {
-      const data = await CategoryModel.find();
+      const data = await BillDetailModel.find();
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [GET] api/categories/:id
+  // [GET] api/bill-details/:id
   async getOne(req, res, next) {
     try {
       const { id } = req.params;
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ error: 'Invalid product ID' });
       }
-      const data = await CategoryModel.findById(req.params.id);
+      const data = await BillDetailModel.findById(req.params.id);
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [POST] api/categories/store
+  // [POST] api/bill-details/store
   async create(req, res, next) {
     try {
       req.body.slug = unidecode(req.body.name)
@@ -35,7 +35,7 @@ class CategoryController {
         .replace(/ /g, '-')
         .replace(/[^\w-]+/g, '')
         .replace(/-+/g, '-');
-      const data = new CategoryModel(req.body);
+      const data = new BillDetailModel(req.body);
       const savedCategory = await data.save();
       res.status(200).json(savedCategory);
     } catch (error) {
@@ -43,7 +43,7 @@ class CategoryController {
     }
   }
 
-  // [PUT] api/categories/update/:id
+  // [PUT] api/bill-details/update/:id
   async update(req, res, next) {
     try {
       req.body.slug = unidecode(req.body.name)
@@ -51,17 +51,17 @@ class CategoryController {
         .replace(/ /g, '-')
         .replace(/[^\w-]+/g, '')
         .replace(/-+/g, '-');
-      const data = await CategoryModel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+      const data = await BillDetailModel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json(error);
     }
   }
 
-  // [DELETE] api/categories/delete/:id
+  // [DELETE] api/bill-details/delete/:id
   async delete(req, res, next) {
     try {
-      await CategoryModel.findByIdAndDelete(req.params.id);
+      await BillDetailModel.findByIdAndDelete(req.params.id);
       res.status(200).json('Xóa thành công');
     } catch (error) {
       res.status(500).json(error);
@@ -69,4 +69,4 @@ class CategoryController {
   }
 }
 
-module.exports = new CategoryController();
+module.exports = new BillDetailController();

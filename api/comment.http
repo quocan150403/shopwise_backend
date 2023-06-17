@@ -1,0 +1,44 @@
+@baseUrl =  http://localhost:3000/api/comments
+
+# User API
+
+# @name Getall
+GET {{baseUrl}} 
+
+###
+
+# @name GetbyId
+GET {{baseUrl}}/6455ceffc8d917d3615a497b
+
+###
+
+# @name Create
+POST {{baseUrl}}/store
+Content-Type: application/json
+
+{
+   "content":"Demo 1",
+   "rating": 5,
+   "userId": "648567df63cc33b32a1d7933",
+   "productId":   "648567df63cc33b32a1d7933"
+}
+
+###
+
+# @name Update
+PUT {{baseUrl}}/update/6485db65d8839a10fbadfa38
+Content-Type: application/json
+
+{
+   "content":"Demo ",
+   "rating": 5,
+   "userId": "648567df63cc33b32a1d7933",
+   "productId":"648567df63cc33b32a1d7933"
+}
+
+###
+
+# @name Delete
+DELETE {{baseUrl}}/delete/6485db65d8839a10fbadfa38
+
+###

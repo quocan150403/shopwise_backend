@@ -119,10 +119,10 @@ class ProductController {
   // [GET] api/products/rename
   async rename(req, res, next) {
     try {
-      const result = await ProductModel.updateMany({}, { $rename: { inventory: 'stock' } });
-      res.status(200).json(result);
+      const result = await ProductModel.updateMany({ priceoOld: 0 }, { $unset: { priceOld: 1 } });
+      res.status(200).json({ message: 'Các trường priceold bằng 0 đã được xóa thành công' });
     } catch (error) {
-      console.error('Error renaming column:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
   }
 }
